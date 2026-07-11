@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Settle Houses — Affordable homes for America</title>
+<meta name="description" content="Settle Houses buys, renovates, and rents single-family homes that traditional lenders won't finance — creating quality, affordable housing for families across America." />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#12141a;
+    --ink-soft:#4a4f5c;
+    --line:#e7e8ec;
+    --bg:#ffffff;
+    --bg-alt:#f6f6f4;
+    --purple:#6c2bd9;
+    --orange:#f26722;
+    --gold:#c9a227;
+    --radius:20px;
+    --max:1180px;
+    --font:"Inter",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{
+    font-family:var(--font);
+    color:var(--ink);
+    background:var(--bg);
+    line-height:1.5;
+    -webkit-font-smoothing:antialiased;
+    text-rendering:optimizeLegibility;
+    overflow-x:hidden;
+  }
+  a{color:inherit;text-decoration:none}
+  .wrap{max-width:var(--max);margin:0 auto;padding:0 28px}
+  .eyebrow{
+    font-size:.78rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;
+    color:var(--orange);
+  }
+
+  /* ---------- Header ---------- */
+  header{
+    position:sticky;top:0;z-index:50;
+    background:rgba(255,255,255,.82);
+    backdrop-filter:saturate(180%) blur(12px);
+    border-bottom:1px solid var(--line);
+  }
+  .nav{display:flex;align-items:center;justify-content:space-between;height:74px}
+  .brand{display:flex;align-items:center;gap:11px;font-weight:800;font-size:1.18rem;letter-spacing:-.02em}
+  .brand svg{display:block}
+  .nav-links{display:flex;align-items:center;gap:34px}
+  .nav-links a{font-size:.95rem;font-weight:500;color:var(--ink-soft);transition:color .15s}
+  .nav-links a:hover{color:var(--ink)}
+  .btn{
+    display:inline-flex;align-items:center;gap:8px;
+    background:var(--ink);color:#fff;font-weight:600;font-size:.95rem;
+    padding:11px 20px;border-radius:999px;transition:transform .15s, background .15s;
+  }
+  .btn:hover{transform:translateY(-1px);background:#000}
+  .btn.ghost{background:transparent;color:var(--ink);border:1px solid var(--line)}
+  .btn.ghost:hover{background:var(--bg-alt)}
+  .menu-toggle{display:none}
+
+  /* ---------- Hero ---------- */
+  .hero{padding:88px 0 72px;position:relative}
+  .hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:56px;align-items:center}
+  h1{
+    font-size:clamp(2.7rem,6.2vw,4.5rem);
+    font-weight:800;line-height:1.02;letter-spacing:-.035em;
+  }
+  h1 .hl{
+    background:linear-gradient(100deg,var(--purple),var(--orange) 55%,var(--gold));
+    -webkit-background-clip:text;background-clip:text;color:transparent;
+  }
+  .hero p.lede{
+    margin-top:26px;font-size:1.24rem;color:var(--ink-soft);max-width:33ch;line-height:1.45;
+  }
+  .hero-cta{margin-top:36px;display:flex;gap:14px;flex-wrap:wrap}
+  .hero-art{position:relative;display:flex;justify-content:center;align-items:center}
+  .hero-photos{position:relative;width:100%;max-width:500px;margin-left:auto}
+  .hero-photos .main{
+    width:100%;aspect-ratio:4/5;object-fit:cover;border-radius:22px;
+    box-shadow:0 34px 70px -34px rgba(18,20,26,.5);display:block;
+  }
+  .hero-photos .inset{
+    position:absolute;left:-26px;bottom:-26px;width:54%;aspect-ratio:4/3;
+    object-fit:cover;border-radius:16px;border:6px solid #fff;
+    box-shadow:0 24px 44px -22px rgba(18,20,26,.45);
+  }
+  .hero-photos .badge{
+    position:absolute;top:18px;right:18px;background:rgba(255,255,255,.94);
+    backdrop-filter:blur(6px);border-radius:999px;padding:9px 15px;
+    font-weight:600;font-size:.85rem;display:flex;align-items:center;gap:9px;
+    box-shadow:0 12px 28px -14px rgba(0,0,0,.4);
+  }
+  .hero-photos .badge .d{width:9px;height:9px;border-radius:50%;background:#16a34a;box-shadow:0 0 0 4px rgba(22,163,74,.16)}
+
+  /* ---------- Stats ---------- */
+  .stats{border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:var(--bg-alt)}
+  .stats-grid{display:grid;grid-template-columns:repeat(3,1fr)}
+  .stat{padding:44px 28px;text-align:center;border-right:1px solid var(--line)}
+  .stat:last-child{border-right:none}
+  .stat .num{font-size:clamp(2.4rem,4.5vw,3.4rem);font-weight:800;letter-spacing:-.03em;line-height:1}
+  .stat .num.p{color:var(--purple)}
+  .stat .num.o{color:var(--orange)}
+  .stat .num.g{color:var(--gold)}
+  .stat .lbl{margin-top:12px;font-size:.9rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-soft)}
+
+  /* ---------- Section shell ---------- */
+  section.block{padding:96px 0}
+  .section-head{max-width:660px}
+  .section-head h2{
+    font-size:clamp(2rem,4vw,2.9rem);font-weight:800;letter-spacing:-.03em;line-height:1.08;margin-top:14px;
+  }
+  .section-head p{margin-top:18px;font-size:1.15rem;color:var(--ink-soft)}
+
+  /* ---------- Mission ---------- */
+  .mission{background:var(--ink);color:#fff}
+  .mission .eyebrow{color:var(--gold)}
+  .mission-grid{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center}
+  .mission h2{font-size:clamp(2rem,4vw,3rem);font-weight:800;letter-spacing:-.03em;line-height:1.1}
+  .mission h2 .hl{
+    background:linear-gradient(100deg,var(--purple),var(--orange) 60%,var(--gold));
+    -webkit-background-clip:text;background-clip:text;color:transparent;
+  }
+  .mission p{color:#c4c7d0;font-size:1.12rem;margin-top:22px;line-height:1.6}
+
+  /* ---------- Cards ---------- */
+  .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:56px}
+  .card{
+    border:1px solid var(--line);border-radius:var(--radius);padding:34px 30px;
+    transition:transform .18s, box-shadow .18s, border-color .18s;background:#fff;
+  }
+  .card:hover{transform:translateY(-4px);box-shadow:0 18px 40px -22px rgba(18,20,26,.28);border-color:#d8d9de}
+  .card .ic{width:46px;height:46px;border-radius:12px;display:flex;align-items:center;justify-content:center;margin-bottom:22px}
+  .ic.p{background:rgba(108,43,217,.1)}
+  .ic.o{background:rgba(242,103,34,.12)}
+  .ic.g{background:rgba(201,162,39,.14)}
+  .card h3{font-size:1.32rem;font-weight:700;letter-spacing:-.02em}
+  .card p{margin-top:12px;color:var(--ink-soft);font-size:1.02rem;line-height:1.55}
+
+  /* ---------- Markets ---------- */
+  .markets{background:var(--bg-alt)}
+  .markets-grid{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center}
+  .chips{display:flex;flex-wrap:wrap;gap:12px;margin-top:30px}
+  .chip{
+    background:#fff;border:1px solid var(--line);border-radius:999px;
+    padding:11px 20px;font-weight:600;font-size:1rem;display:flex;align-items:center;gap:9px;
+  }
+  .chip .dot{width:9px;height:9px;border-radius:50%}
+  .region-note{margin-top:26px;color:var(--ink-soft);font-size:1.02rem}
+  .map-card{
+    position:relative;border-radius:var(--radius);overflow:hidden;
+    box-shadow:0 24px 50px -28px rgba(18,20,26,.4);aspect-ratio:4/3;
+  }
+  .map-card img{width:100%;height:100%;object-fit:cover;display:block}
+  .map-card .cap{
+    position:absolute;left:20px;bottom:20px;background:rgba(18,20,26,.82);
+    backdrop-filter:blur(4px);color:#fff;padding:11px 18px;border-radius:12px;
+    font-weight:600;font-size:1rem;
+  }
+
+  /* ---------- CTA ---------- */
+  .cta{padding:110px 0;text-align:center;position:relative;overflow:hidden}
+  .cta h2{font-size:clamp(2.1rem,4.5vw,3.3rem);font-weight:800;letter-spacing:-.03em;line-height:1.08}
+  .cta p{margin:20px auto 0;max-width:52ch;font-size:1.18rem;color:var(--ink-soft)}
+  .cta .btn{margin-top:36px;padding:15px 30px;font-size:1.05rem}
+
+  /* ---------- Footer ---------- */
+  footer{border-top:1px solid var(--line);padding:56px 0 40px}
+  .foot-grid{display:flex;justify-content:space-between;align-items:flex-start;gap:40px;flex-wrap:wrap}
+  .foot-brand{max-width:340px}
+  .foot-brand p{margin-top:16px;color:var(--ink-soft);font-size:.98rem;line-height:1.55}
+  .foot-links{display:flex;gap:64px;flex-wrap:wrap}
+  .foot-col h4{font-size:.78rem;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-soft);margin-bottom:16px}
+  .foot-col a{display:block;color:var(--ink);font-size:.98rem;margin-bottom:11px;transition:color .15s}
+  .foot-col a:hover{color:var(--orange)}
+  .foot-bottom{margin-top:48px;padding-top:24px;border-top:1px solid var(--line);display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;color:var(--ink-soft);font-size:.9rem}
+
+  /* ---------- Responsive ---------- */
+  @media(max-width:860px){
+    .hero-grid{grid-template-columns:1fr;gap:12px}
+    .hero-art{order:-1;max-width:340px;margin:0 auto}
+    .hero{padding:56px 0 48px}
+    .hero p.lede{max-width:none}
+    .mission-grid,.markets-grid{grid-template-columns:1fr;gap:32px}
+    .cards{grid-template-columns:1fr}
+    .stats-grid{grid-template-columns:1fr}
+    .stat{border-right:none;border-bottom:1px solid var(--line);padding:32px}
+    .stat:last-child{border-bottom:none}
+    .nav-links{display:none}
+    section.block{padding:64px 0}
+  }
+</style>
+</head>
+<body>
+
+<!-- ===== Header ===== -->
+<header>
+  <div class="wrap nav">
+    <a href="#top" class="brand" aria-label="Settle Houses home">
+      <svg width="30" height="30" viewBox="0 0 100 100" fill="none" aria-hidden="true">
+        <path d="M12 52 L50 18 L88 52" stroke="#6c2bd9" stroke-width="11" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M78 44 L78 84" stroke="#f26722" stroke-width="11" stroke-linecap="round"/>
+        <path d="M22 84 L78 84" stroke="#c9a227" stroke-width="11" stroke-linecap="round"/>
+        <path d="M22 44 L22 84" stroke="#6c2bd9" stroke-width="11" stroke-linecap="round"/>
+      </svg>
+      Settle Houses
+    </a>
+    <nav class="nav-links">
+      <a href="#what">What we do</a>
+      <a href="#mission">Mission</a>
+      <a href="#markets">Where we buy</a>
+      <a href="#process">Our process</a>
+    </nav>
+    <a href="#contact" class="btn">Get in touch</a>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- ===== Hero ===== -->
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div>
+        <span class="eyebrow">Single-family housing · nationwide</span>
+        <h1 style="margin-top:18px">Affordable homes for <span class="hl">America.</span></h1>
+        <p class="lede">Settle Houses buys, renovates, and rents single-family homes across the country — turning distressed inventory into quality housing for hardworking families.</p>
+        <div class="hero-cta">
+          <a href="#what" class="btn">See what we do</a>
+          <a href="#markets" class="btn ghost">Where we buy</a>
+        </div>
+      </div>
+      <div class="hero-art">
+        <div class="hero-photos">
+          <img class="main" src="https://images.unsplash.com/photo-1570129477492-45c003edd2be?auto=format&fit=crop&w=1000&q=75" alt="A renovated American single-family home with a wraparound porch" fetchpriority="high">
+          <img class="inset" src="https://images.unsplash.com/photo-1592595896551-12b371d546d5?auto=format&fit=crop&w=800&q=75" alt="A brick single-family home in a Sun Belt neighborhood">
+          <div class="badge"><span class="d"></span>Renovated &amp; rented</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Stats ===== -->
+  <div class="stats">
+    <div class="wrap stats-grid">
+      <div class="stat"><div class="num p">50+</div><div class="lbl">Homes acquired</div></div>
+      <div class="stat"><div class="num o">7</div><div class="lbl">Active markets</div></div>
+      <div class="stat"><div class="num g">2&nbsp;wks</div><div class="lbl">Typical close</div></div>
+    </div>
+  </div>
+
+  <!-- ===== What we do ===== -->
+  <section class="block" id="what">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow">What we do</span>
+        <h2>We take on the homes the market leaves behind.</h2>
+        <p>Many real estate funds compete with individual buyers for move-in-ready homes. We take a different approach — focusing on distressed properties that traditional banks won't finance and retail buyers can't take on.</p>
+      </div>
+      <div class="cards">
+        <div class="card">
+          <div class="ic p">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#6c2bd9" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 10 L12 3 L21 10 V20 H3 Z"/><path d="M9 20 v-6 h6 v6"/></svg>
+          </div>
+          <h3>What we buy</h3>
+          <p>Single-family homes from $60k–$300k that need renovation. Because most banks won't finance distressed inventory, we're not competing with retail buyers.</p>
+        </div>
+        <div class="card">
+          <div class="ic o">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#f26722" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 6-9 12-9 12s-9-6-9-12a9 9 0 0 1 18 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+          </div>
+          <h3>Where we buy</h3>
+          <p>We focus on Sun Belt markets — Georgia, Texas, Alabama, and other high-growth cities where affordable housing is needed most.</p>
+        </div>
+        <div class="card">
+          <div class="ic g">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#c9a227" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2 a10 10 0 1 0 0.01 0"/><path d="M12 7 v5 l3 3"/></svg>
+          </div>
+          <h3>How we move</h3>
+          <p>We buy in any condition and can close in as little as two weeks. Most purchases are made sight-unseen when the photos tell us enough.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Mission ===== -->
+  <section class="mission block" id="mission">
+    <div class="wrap mission-grid">
+      <div>
+        <span class="eyebrow">Our mission</span>
+        <h2 style="margin-top:16px">Quality, <span class="hl">affordable housing</span> for families across America.</h2>
+      </div>
+      <div>
+        <p>By transforming homes that would otherwise sit vacant, we reduce neighborhood blight and return them to use as high-quality, affordable rentals.</p>
+        <p>Every house we renovate is one more family that gets a place they can proudly call home — and one more block on its way back.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Markets ===== -->
+  <section class="markets block" id="markets">
+    <div class="wrap markets-grid">
+      <div>
+        <span class="eyebrow">Where we buy</span>
+        <h2 style="font-size:clamp(2rem,4vw,2.9rem);font-weight:800;letter-spacing:-.03em;margin-top:14px;line-height:1.1">Concentrated across the Sun Belt.</h2>
+        <div class="chips">
+          <span class="chip"><span class="dot" style="background:var(--purple)"></span>Georgia</span>
+          <span class="chip"><span class="dot" style="background:var(--orange)"></span>Texas</span>
+          <span class="chip"><span class="dot" style="background:var(--gold)"></span>Alabama</span>
+          <span class="chip"><span class="dot" style="background:var(--purple)"></span>+ more</span>
+        </div>
+        <p class="region-note">We prioritize high-growth Sun Belt cities where demand for quality affordable housing outpaces supply — and where a renovated home makes the biggest difference to a neighborhood.</p>
+      </div>
+      <div class="map-card">
+        <img src="https://images.unsplash.com/photo-1564013799919-ab600027ffc6?auto=format&fit=crop&w=1000&q=75" alt="A Sun Belt single-family home with palm trees" loading="lazy">
+        <span class="cap">GA · TX · AL &amp; growing</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Process ===== -->
+  <section class="block" id="process">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow">Our process</span>
+        <h2>Fast, transparent, and built for scale.</h2>
+        <p>We've streamlined acquisition so a distressed home can go from photos to closed in a matter of weeks.</p>
+      </div>
+      <div class="cards">
+        <div class="card">
+          <div class="ic p"><span style="font-weight:800;color:var(--purple);font-size:1.15rem">01</span></div>
+          <h3>Source</h3>
+          <p>We identify distressed single-family homes in our target markets that lenders and retail buyers pass over.</p>
+        </div>
+        <div class="card">
+          <div class="ic o"><span style="font-weight:800;color:var(--orange);font-size:1.15rem">02</span></div>
+          <h3>Acquire</h3>
+          <p>We buy in any condition — often sight-unseen from photos — and close in as little as two weeks.</p>
+        </div>
+        <div class="card">
+          <div class="ic g"><span style="font-weight:800;color:var(--gold);font-size:1.15rem">03</span></div>
+          <h3>Renovate &amp; place</h3>
+          <p>We bring each home up to standard and return it to the market as a quality, affordable rental.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== CTA ===== -->
+  <section class="cta" id="contact">
+    <div class="wrap">
+      <span class="eyebrow">Get in touch</span>
+      <h2 style="margin-top:14px">Have a question about<br>what we do?</h2>
+      <p>Whether you're a partner, vendor, or just want to learn more about our approach to affordable housing, we'd love to hear from you.</p>
+      <a href="mailto:brian@settlehouses.com" class="btn">Email us →</a>
+    </div>
+  </section>
+
+</main>
+
+<!-- ===== Footer ===== -->
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-brand">
+        <a href="#top" class="brand" aria-label="Settle Houses home">
+          <svg width="26" height="26" viewBox="0 0 100 100" fill="none" aria-hidden="true">
+            <path d="M12 52 L50 18 L88 52" stroke="#6c2bd9" stroke-width="11" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M78 44 L78 84" stroke="#f26722" stroke-width="11" stroke-linecap="round"/>
+            <path d="M22 84 L78 84" stroke="#c9a227" stroke-width="11" stroke-linecap="round"/>
+            <path d="M22 44 L22 84" stroke="#6c2bd9" stroke-width="11" stroke-linecap="round"/>
+          </svg>
+          Settle Houses
+        </a>
+        <p>We buy, renovate, and rent single-family homes — creating quality, affordable housing for families across America.</p>
+      </div>
+      <div class="foot-links">
+        <div class="foot-col">
+          <h4>Company</h4>
+          <a href="#what">What we do</a>
+          <a href="#mission">Mission</a>
+          <a href="#markets">Where we buy</a>
+          <a href="#process">Our process</a>
+        </div>
+        <div class="foot-col">
+          <h4>Contact</h4>
+          <a href="mailto:brian@settlehouses.com">brian@settlehouses.com</a>
+        </div>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 Settle Houses. All rights reserved.</span>
+      <span>Affordable homes for America.</span>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
